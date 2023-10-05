@@ -1,4 +1,4 @@
-# This puppet file configures the server for deployement
+# Puppet for setup
 
 $nginx_conf = "server {
     listen 80 default_server;
@@ -11,7 +11,7 @@ $nginx_conf = "server {
         index index.html index.htm;
     }
     location /redirect_me {
-        return 301 http://cuberule.com/;
+        return 301 http://linktr.ee/firdaus_h_salim/;
     }
     error_page 404 /404.html;
     location /404 {
@@ -47,7 +47,7 @@ package { 'nginx':
 
 -> file { '/data/web_static/releases/test/index.html':
   ensure  => 'present',
-  content => "Holberton School Puppet\n"
+  content => "this webpage is found in data/web_static/releases/test/index.htm \n"
 }
 
 -> file { '/data/web_static/current':
@@ -69,12 +69,12 @@ file { '/var/www':
 
 -> file { '/var/www/html/index.html':
   ensure  => 'present',
-  content => "Holberton School Nginx\n"
+  content => "This is my first upload  in /var/www/index.html***\n"
 }
 
 -> file { '/var/www/html/404.html':
   ensure  => 'present',
-  content => "Ceci n'est pas une page\n"
+  content => "Ceci n'est pas une page - Error page\n"
 }
 
 -> file { '/etc/nginx/sites-available/default':
